@@ -103,7 +103,7 @@ $$P(y_+ | y_1, ..., y_n, x_+, x_1, ..., x_n, x_+) \sigma \mathcal{N}(K_*^TK^{-1}
 
 $$\Sigma = \begin{bmatrix} K & K_* \\ K_*^T & K_{**} \end{bmatrix}$$
 
-Now, $K_*^TK^{-1}y$ is the kernel regression and $K_{**}K^{-1}K_*$ is uncertainty.
+Now, $K_{*}^TK^{-1}y$ is the kernel regression and $K_{**}K^{-1}K_{*}$ is uncertainty.
 
 
 ## Application to Bayesian Optimization
@@ -139,8 +139,11 @@ $$EI(x) = \mathbb{E} \left[ \max(f(x) - f(x^+), 0) \right]$$
 $f(x^+)$ is the current best solution and $x^+$ is the location of the current best solution. $$x^+ = \argmax_x f(x)$$
 
 If we think of probability for the improvement $I$
+
 $$ I(x) = \max\{f(x) - f(x^+), 0\} $$
+
 $$ f(x) \sim \mathcal{N}(\mu_x, \sigma_x^2) $$
+
 $$ I(x) \sim \mathcal{N}(\mu_x - f(x^+), \sigma_x^2) $$
 
 $$P(I) = \frac{1}{\sqrt{2\pi}\sigma_x} \exp \left( -\frac{( I - \mu_x + f(x^+))^2}{2\sigma_x^2} \right)$$

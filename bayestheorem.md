@@ -99,11 +99,11 @@ $$\Sigma = K, K_{ij} = K(x_i, x_j)$$
 $$P(y | x, D) = \mathcal{N}(0, K)$$
 
 This part needs to be reviewed later on.
-$$P(y_+ | y_1, ..., y_n, x_+, x_1, ..., x_n, x_+) \sigma \mathcal{N}(K_*^TK^{-1}y, K_{**}K^{-1}K_*)$$
+$$P(y_+ | y_1, ..., y_n, x_+, x_1, ..., x_n, x_+) \sigma \mathcal{N}(K_*^TK^{-1}y, K_{**} - K_{*}^TK^{-1}K_{*})$$
 
 $$\Sigma = \begin{bmatrix} K & K_* \\ K_*^T & K_{**} \end{bmatrix}$$
 
-Now, $K_{*}^TK^{-1}y$ is the kernel regression and $K_{**}K^{-1}K_{*}$ is uncertainty.
+Now, $K_{*}^TK^{-1}y$ is the kernel regression and $K_{**} - K_{*}^TK^{-1}K_{*}$ is uncertainty.
 
 
 ## Application to Bayesian Optimization

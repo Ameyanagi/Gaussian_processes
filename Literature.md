@@ -31,7 +31,7 @@
 	
 	
 	
-* [ ] [Bishop,C.M.Model-basedmachinelearning.Phil.Trans.R.Soc.A371, 20120222 (2013).]()
+* [ ] [Bishop, C.M. Model-based machine learning. Phil.Trans.R.Soc.A 371, 20120222 (2013).]()
 : Clear tutorial on probabilistic modelling
 	<details>
 		<summary>My Notes</summary>	

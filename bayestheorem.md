@@ -1,7 +1,7 @@
 # Bayes theorem
 ## Fundamentals of the equation
 
-Bayes' theorem is a mathematical formula that describes the probability of an event occurring, based on prior knowledge of conditions that might be related to the event. It is used in statistics and probability theory to calculate the probability of an event occurring, given certain conditions. 
+Bayes theorem is a mathematical formula that describes the probability of an event occurring, based on prior knowledge of conditions that might be related to the event. It is used in statistics and probability theory to calculate the probability of an event occurring, given certain conditions. 
 
 THe formula is the following.
 

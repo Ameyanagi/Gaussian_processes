@@ -7,7 +7,7 @@
 	
 	</details>
 * [ ] [Rasmussen, C. E. & Williams, C. K. I. Gaussian Processes for Machine Learning
-(MIT Press, 2006)]()
+(MIT Press, 2006)](http://gaussianprocess.org/gpml/chapters/RW.pdf)
 : Classic monograph on Gaussian Processes and relates the kernel methods to machine learning.
 	<details>
 		<summary>My Notes</summary>	

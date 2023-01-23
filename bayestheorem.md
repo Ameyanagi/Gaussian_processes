@@ -134,7 +134,7 @@ PI(x) &= P(f(x) > f(x^+) + \xi) \\
 ### Expected Improvement (EI)
 Expected Improvement (EI) is a function that measures expetation of the improvement of the current best solution $x^+$.
 
-$$EI(x) = \mathbb{E} \left[ \max(f(x) - f(x^+), 0) \right]$$
+$$EI(x) = \mathbb{E} \left[ \max\{f(x) - f(x^+), 0\} \right]$$
 
 $f(x^+)$ is the current best solution and $x^+$ is the location of the current best solution. $$x^+ = \argmax_x f(x)$$
 

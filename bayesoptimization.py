@@ -115,7 +115,7 @@ if (len(st.session_state.df) > 0):
     
     y_EI = max(np.abs(y_pred))/max(np.abs(y_EI)) * y_EI
     
-    fig.add_trace(go.Scatter(x=x_points, y=y_EI, mode='lines', name='Expected Improvement', line=dict(color='blue')))
+    fig.add_trace(go.Scatter(x=x_points, y=y_EI, mode='lines', name='Scaled Expected Improvement', line=dict(color='blue')))
       
 
 st.text("Click on the graph twice to add a new point")

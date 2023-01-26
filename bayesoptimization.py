@@ -10,6 +10,7 @@ from sklearn.gaussian_process.kernels import RBF, ConstantKernel
 
 def expected_improvement(x, gaussian_process, evaluated_loss, greater_is_better=False, n_params=1):
     """ expected_improvement
+    code from: https://github.com/thuijskens/bayesian-optimization/blob/master/python/gp.py
     Expected improvement acquisition function.
     Arguments:
     ----------

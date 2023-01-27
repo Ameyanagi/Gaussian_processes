@@ -82,6 +82,27 @@ elif select == "log(x)":
 
 select_optimum = st.selectbox("Select an optimum", ["min", "max"])
 
+select_show = st.multiselect("Select a function to show", ["True Function", "Predicted Function", "Uncertainty", "Expected Improvement"], ["True Function", "Predicted Function", "Uncertainty", "Expected Improvement"])
+if "True Function" in select_show:
+    true_function_color = "rgba(255,0,0,1)"
+else:
+    true_function_color = "rgba(255,0,0,0)"
+    
+if "Predicted Function" in select_show:
+    pred_function_color = "rgba(0,100,80,1)"
+else:
+    pred_function_color = "rgba(0,100,80,0)"
+
+if "Uncertainty" in select_show:
+    uncertainty_color = "rgba(0,100,80,0.2)"
+else:
+    uncertainty_color = "rgba(0,100,80,0)"
+    
+if "Expected Improvement" in select_show:
+    EI_color = "rgba(0,0,255,1)"
+else:
+    EI_color = "rgba(0,0,255,0)"
+
 input_range = st.slider("Select a range", -20.0, 20.0, (0.0, 10.0))
 
 x_points = np.linspace(input_range[0], input_range[1], 1000)
@@ -89,7 +110,7 @@ y = evaluation_function(x_points)
 
 
 fig = go.Figure()
-fig.add_trace(go.Scatter(x=x_points, y=y, mode='lines', name='True Function', line=dict(color='red')))
+fig.add_trace(go.Scatter(x=x_points, y=y, mode='lines', name='True Function', line=dict(color=true_function_color)))
 fig.add_trace(go.Scatter(x=st.session_state.df["x"], y=st.session_state.df["y_true"], mode='markers', name='True Function', marker=dict(color='red')))
 
 if (len(st.session_state.df) > 0):
@@ -102,13 +123,13 @@ if (len(st.session_state.df) > 0):
     y_lower = y_pred - y_std
 
     
-    fig.add_trace(go.Scatter(x=x_points, y=y_pred, mode='lines', name='Predicted Function', line=dict(color='rgba(0,100,80,1)')))
+    fig.add_trace(go.Scatter(x=x_points, y=y_pred, mode='lines', name='Predicted Function', line=dict(color=pred_function_color)))
     
     fig.add_trace(go.Scatter(x=np.concatenate([x_points, x_points[::-1]]),
                              y=np.concatenate([y_upper, y_lower[::-1]]),
                              fill='toself',
                              name = "Uncertainty",
-                             fillcolor='rgba(0,100,80,0.2)',
+                             fillcolor=uncertainty_color,
                              line=dict(color='rgba(255,255,255,0)')))
 
     y_EI = expected_improvement(x_points.reshape(-1, 1), gpr, st.session_state.df["y_true"].values, greater_is_better=select_optimum=="max", n_params=1)
@@ -116,7 +137,7 @@ if (len(st.session_state.df) > 0):
     
     y_EI = max(np.abs(y_pred))/max(np.abs(y_EI)) * y_EI
     
-    fig.add_trace(go.Scatter(x=x_points, y=y_EI, mode='lines', name='Scaled Expected Improvement', line=dict(color='blue')))
+    fig.add_trace(go.Scatter(x=x_points, y=y_EI, mode='lines', name='Scaled Expected Improvement', line=dict(color=EI_color)))
       
 
 st.text("Click on the graph twice to add a new point")
